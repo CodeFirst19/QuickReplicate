@@ -14,7 +14,7 @@ namespace QuickReplicate
     public partial class Form1 : Form
     {
         Replicate replicate;
-        OpenFileDialog dialog;
+        
 
         public string MyProperty { get; set; }
         public Form1()
@@ -30,8 +30,7 @@ namespace QuickReplicate
 
         private void SourceButton_Click(object sender, EventArgs e)
         {
-            dialog = new OpenFileDialog();
-            dialog.ShowDialog();
+            OpenFileDialog dialog = new OpenFileDialog();
 
             if (dialog.ShowDialog().Equals(DialogResult.OK))
             {
@@ -41,8 +40,7 @@ namespace QuickReplicate
 
         private void DestinationButton_Click(object sender, EventArgs e)
         {
-            dialog = new OpenFileDialog();
-            dialog.ShowDialog();
+            OpenFileDialog dialog = new OpenFileDialog();
 
             if (dialog.ShowDialog().Equals(DialogResult.OK))
             {
