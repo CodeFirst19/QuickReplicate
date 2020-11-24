@@ -29,7 +29,6 @@ namespace QuickReplicate
         /// </summary>
         private void InitializeComponent()
         {
-            this.progressBar = new System.Windows.Forms.ProgressBar();
             this.label1 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.SubDirectoryCheckBox = new System.Windows.Forms.CheckBox();
@@ -42,16 +41,9 @@ namespace QuickReplicate
             this.DestinationTextBox = new System.Windows.Forms.TextBox();
             this.SourceButton = new System.Windows.Forms.Button();
             this.DestinationButton = new System.Windows.Forms.Button();
+            this.ErrorLabel = new System.Windows.Forms.Label();
+            this.progressBar = new System.Windows.Forms.ProgressBar();
             this.SuspendLayout();
-            // 
-            // progressBar
-            // 
-            this.progressBar.Cursor = System.Windows.Forms.Cursors.WaitCursor;
-            this.progressBar.Location = new System.Drawing.Point(12, 12);
-            this.progressBar.Name = "progressBar";
-            this.progressBar.Size = new System.Drawing.Size(749, 23);
-            this.progressBar.Step = 5;
-            this.progressBar.TabIndex = 0;
             // 
             // label1
             // 
@@ -101,6 +93,7 @@ namespace QuickReplicate
             this.ViewLogButton.TabIndex = 5;
             this.ViewLogButton.Text = "View Log";
             this.ViewLogButton.UseVisualStyleBackColor = true;
+            this.ViewLogButton.Click += new System.EventHandler(this.ViewLogButton_Click);
             // 
             // ClearLogButton
             // 
@@ -110,6 +103,7 @@ namespace QuickReplicate
             this.ClearLogButton.TabIndex = 6;
             this.ClearLogButton.Text = "Clear log";
             this.ClearLogButton.UseVisualStyleBackColor = true;
+            this.ClearLogButton.Click += new System.EventHandler(this.ClearLogButton_Click);
             // 
             // ReplicateButton
             // 
@@ -125,10 +119,11 @@ namespace QuickReplicate
             // 
             this.StopButton.Location = new System.Drawing.Point(668, 225);
             this.StopButton.Name = "StopButton";
-            this.StopButton.Size = new System.Drawing.Size(75, 23);
+            this.StopButton.Size = new System.Drawing.Size(93, 23);
             this.StopButton.TabIndex = 8;
             this.StopButton.Text = "Stop";
             this.StopButton.UseVisualStyleBackColor = true;
+            this.StopButton.Click += new System.EventHandler(this.StopButton_Click);
             // 
             // SourceTextBox
             // 
@@ -166,11 +161,31 @@ namespace QuickReplicate
             this.DestinationButton.UseVisualStyleBackColor = true;
             this.DestinationButton.Click += new System.EventHandler(this.DestinationButton_Click);
             // 
+            // ErrorLabel
+            // 
+            this.ErrorLabel.AutoSize = true;
+            this.ErrorLabel.ForeColor = System.Drawing.Color.Red;
+            this.ErrorLabel.Location = new System.Drawing.Point(97, 275);
+            this.ErrorLabel.Name = "ErrorLabel";
+            this.ErrorLabel.Size = new System.Drawing.Size(32, 15);
+            this.ErrorLabel.TabIndex = 13;
+            this.ErrorLabel.Text = "Error";
+            this.ErrorLabel.Visible = false;
+            // 
+            // progressBar
+            // 
+            this.progressBar.Location = new System.Drawing.Point(12, 12);
+            this.progressBar.Name = "progressBar";
+            this.progressBar.Size = new System.Drawing.Size(749, 35);
+            this.progressBar.TabIndex = 14;
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(773, 271);
+            this.ClientSize = new System.Drawing.Size(774, 317);
+            this.Controls.Add(this.progressBar);
+            this.Controls.Add(this.ErrorLabel);
             this.Controls.Add(this.DestinationButton);
             this.Controls.Add(this.SourceButton);
             this.Controls.Add(this.DestinationTextBox);
@@ -183,7 +198,6 @@ namespace QuickReplicate
             this.Controls.Add(this.SubDirectoryCheckBox);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.label1);
-            this.Controls.Add(this.progressBar);
             this.Name = "Form1";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Quick Replicate";
@@ -193,8 +207,6 @@ namespace QuickReplicate
         }
 
         #endregion
-
-        private System.Windows.Forms.ProgressBar progressBar;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.CheckBox SubDirectoryCheckBox;
@@ -207,6 +219,8 @@ namespace QuickReplicate
         private System.Windows.Forms.TextBox DestinationTextBox;
         private System.Windows.Forms.Button SourceButton;
         private System.Windows.Forms.Button DestinationButton;
+        private System.Windows.Forms.Label ErrorLabel;
+        private System.Windows.Forms.ProgressBar progressBar;
     }
 }
 
