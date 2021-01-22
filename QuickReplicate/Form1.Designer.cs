@@ -135,7 +135,6 @@ namespace QuickReplicate
             // 
             // DestinationTextBox
             // 
-            this.DestinationTextBox.Enabled = false;
             this.DestinationTextBox.Location = new System.Drawing.Point(97, 128);
             this.DestinationTextBox.Name = "DestinationTextBox";
             this.DestinationTextBox.Size = new System.Drawing.Size(535, 23);
@@ -201,6 +200,7 @@ namespace QuickReplicate
             this.Name = "Form1";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Quick Replicate";
+            this.Load += new System.EventHandler(this.Form1_Load);
             this.ResumeLayout(false);
             this.PerformLayout();
 
